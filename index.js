@@ -4,12 +4,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// In-memory database
-const upiDatabase = {
-    "someone@upi": "John_Doe",
-    "test@upi": "Jane Doe",
-    "example@upi": "Alice Johnson"
-};
+// Import the database from the separate file
+const { upiDatabase, getNameByUpi } = require('./database');
 
 app.get('/', (req, res) => {
     res.send("Hello World");
@@ -18,7 +14,7 @@ app.get('/', (req, res) => {
 // Endpoint to get name by UPI ID
 app.get('/get-name/:upiId', (req, res) => {
     const upiId = req.params.upiId;
-    const name = upiDatabase[upiId];
+    const name = getNameByUpi(upiId);
 
     if (name) {
         return res.json({ name });
