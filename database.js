@@ -2,7 +2,8 @@
 const upiDatabase = {
     "someone@upi": "John_Doe",
     "test@upi": "Jane Doe",
-    "example@upi": "Alice Johnson"
+    "example@upi": "Alice Johnson",
+    "sanketyelugotla@ybl": "Sanket Yelugotla"
 };
 
 // Function to retrieve the name by UPI ID
